@@ -10,10 +10,19 @@
 
 
   <ion-item>
-    <ion-input type="text" placeholder="Enter task"></ion-input>
+    <ion-input type="text" [(ngModel)]="taskName" placeholder="Enter task"></ion-input>
     <div class="item-note" item-end>
-      <button ion-button>Add Task</button>
+      <button ion-button (click)="addTask()">
+        <ion-icon name="add"></ion-icon>
+      </button>
     </div>
   </ion-item>
 
+  <div padding>
+    <ion-list>
+      <ion-item *ngFor="let todo of taskList">
+        {{todo}}
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
