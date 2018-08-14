@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      To-do List
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -10,7 +10,7 @@
 
 
   <ion-item>
-    <ion-input type="text" [(ngModel)]="taskName" placeholder="Enter task"></ion-input>
+    <ion-input #taskInput type="text" [(ngModel)]="taskName" placeholder="Enter task"></ion-input>
     <div class="item-note" item-end>
       <button ion-button (click)="addTask()">
         <ion-icon name="add"></ion-icon>
@@ -20,8 +20,13 @@
 
   <div padding>
     <ion-list>
-      <ion-item *ngFor="let todo of taskList">
+      <ion-item *ngFor="let todo of taskList; let i = index">
         {{todo}}
+        <div class="item-note" item-end>
+          <button ion-button clear (click)="deleteTask(i)">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </div>
       </ion-item>
     </ion-list>
   </div>
