@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -11,7 +11,7 @@ export class HomePage {
   taskName: string = "";
   @ViewChild('taskInput') input;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
 
   }
 
@@ -28,6 +28,19 @@ export class HomePage {
       this.taskName = "";
     }
     this.input.setFocus();
+  }
+
+  updateTask(index) {
+    let alert = this.alertCtrl.create({
+      title: 'Update Task?',
+      message: 'Type in your new task to update.',
+      inputs: [{ name: 'editTask', placeholder: 'Task' }],
+      buttons: [
+        { text: 'Cancel', role: 'cancel' },
+        { text: 'Update', handler: data => { this.taskList[index] = data.editTask; } }
+      ]
+    });
+    alert.present();
   }
 
   deleteTask(index) {

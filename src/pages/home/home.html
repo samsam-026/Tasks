@@ -23,6 +23,9 @@
       <ion-item *ngFor="let todo of taskList; let i = index">
         {{todo}}
         <div class="item-note" item-end>
+          <button ion-button clear (click)="updateTask(i)">
+            <ion-icon name="create"></ion-icon>
+          </button>
           <button ion-button clear (click)="deleteTask(i)">
             <ion-icon name="trash"></ion-icon>
           </button>
