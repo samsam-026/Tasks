@@ -1,0 +1,59 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+    <ion-item>
+      <ion-input formControlName="firstName" type="text" placeholder="First Name" [class.invalid]="!signupForm.controls.firstName.valid && signupForm.controls.firstName.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.firstName.valid  && signupForm.controls.firstName.dirty">
+      <p>Please enter a valid first name.</p>
+    </ion-item>
+    <ion-item>
+      <ion-input formControlName="lastName" type="text" placeholder="Last Name" [class.invalid]="!signupForm.controls.lastName.valid && signupForm.controls.lastName.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.lastName.valid  && signupForm.controls.lastName.dirty">
+      <p>Please enter a valid last name.</p>
+    </ion-item>
+    <ion-item>
+      <ion-input formControlName="email" type="email" placeholder="Email" [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">
+      <p>Please enter a valid email.</p>
+    </ion-item>
+    <ion-item>
+      <ion-input formControlName="password" type="password" placeholder="Password" [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">
+      <p>Your password must be more than 6 characters long</p>
+    </ion-item>
+    <ion-item>
+      <ion-input formControlName="retype" type="password" placeholder="Confirm Password" [class.invalid]="!signupForm.controls.retype.valid && signupForm.controls.retype.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.retype.valid  && signupForm.controls.retype.dirty">
+      <p>Your password must be more than 6 characters long</p>
+    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col style="text-align: center">
+          <button ion-button center-all type="submit" [disabled]="!signupForm.valid">
+            Create an Account
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+</ion-content>
