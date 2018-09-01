@@ -26,13 +26,13 @@
 
   <div padding>
     <ion-list>
-      <ion-item *ngFor="let todo of taskList; let i = index">
-        {{todo}}
+      <ion-item *ngFor="let todo of fireStoreTaskList | async; let i = index ">
+        {{todo.taskName}}
         <div class="item-note" item-end>
-          <button ion-button clear (click)="updateTask(i)">
+          <button ion-button clear (click)="updateTask(todo.id)">
             <ion-icon name="create"></ion-icon>
           </button>
-          <button ion-button clear (click)="deleteTask(i)">
+          <button ion-button clear (click)="deleteTask(todo.id)">
             <ion-icon name="trash"></ion-icon>
           </button>
         </div>
