@@ -23,7 +23,15 @@ $app-direction: ltr;
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
 
+@font-face {
+  font-family: 'Alegreya Sans Regular';
+  src: url("../assets/fonts/AlegreyaSans-Regular.otf");
+}
 
+$font-family-base: 'Alegreya Sans Regular';
+$font-family-ios-base: 'Alegreya Sans Regular';
+$font-family-md-base: 'Alegreya Sans Regular';
+$font-family-wp-base: 'Alegreya Sans Regular';
 
 // Named Color Variables
 // --------------------------------------------------
@@ -34,8 +42,8 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
+  primary:    #32B596,
+  secondary:  #fff350,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222

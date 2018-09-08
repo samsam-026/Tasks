@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color='primary'>
     <ion-title>Login</ion-title>
   </ion-navbar>
 
@@ -16,24 +16,32 @@
 
 
 <ion-content padding>
+  <img class='imageTop' src="assets/imgs/login_top.png" />
 
   <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
     <ion-item>
+      <div class="item-note" item-start>
+        <ion-icon name="at" color='primary'></ion-icon>
+      </div>
       <ion-input formControlName="email" type="email" placeholder="Email" [class.invalid]="!loginForm.controls.email.valid && loginForm.controls.email.dirty"></ion-input>
     </ion-item>
-    <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  && loginForm.controls.email.dirty">
+    <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  && loginForm.controls.email.dirty" no-lines>
       <p>Please enter a valid email.</p>
     </ion-item>
     <ion-item>
+      <div class="item-note" item-start>
+        <ion-icon name="lock" color='primary'></ion-icon>
+      </div>
       <ion-input formControlName="password" type="password" placeholder="Password" [class.invalid]="!loginForm.controls.password.valid && loginForm.controls.password.dirty"></ion-input>
     </ion-item>
-    <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  && loginForm.controls.password.dirty">
+    <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  && loginForm.controls.password.dirty"
+      no-lines>
       <p>Your password must be more than 6 characters long</p>
     </ion-item>
     <ion-grid>
       <ion-row>
         <ion-col style="text-align: center">
-          <button ion-button center-all type="submit" [disabled]="!loginForm.valid">
+          <button ion-button center-all block color='secondary' type="submit" [disabled]="!loginForm.valid">
             Login
           </button>
         </ion-col>
